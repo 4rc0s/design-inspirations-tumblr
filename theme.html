@@ -1,435 +1,578 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+  Theme: Museum v1.3
+  Author: Paul Giacherio  [http://paulgiacherio.com/]
+  For: Tumblr  [http://tumblr.com/]
+  Terms: Free to use and alter, but please give credit.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>        
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
-        <link rel="icon" href="{Favicon}"/>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
 
-        <!-- iPhone -->
-        <meta name="viewport" content="width=860"/>
-        <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
-        
-        <!-- DEFAULT COLORS -->
-        <meta name="color:Alternate Text" content="#bfad8a"/>
-        <!-- END DEFAULT COLORS -->        
-
-        <style type="text/css">
-            * {
-	            margin: 0;
-	            padding: 0;
-	            list-style-type: none;
-	        }
-
-            body {
-	            background: #2d2d2d;
-	            font-family: helvetica neue, helvetica, arial,san-serif;
-	            font-size: 12px;
-	            color: #949494;
-	            text-align: center;
-	        }
-
-            #container {
-	            width: 840px;
-	            margin: 0 auto;
-	            text-align: left;
-	        }
-	        
-            .regular, .photo, .quote, .link, .conversation, .video, .audio, .metabox {
-	            padding: 10px;
-	        }
-
-            .post {
-	            width: 270px;
-	            height: 350px;
-	            float: left;
-	            background: url('/themes/11/shade.png');
-	            margin-right: 10px;
-	            margin-bottom: 10px;
-	            position: relative;
-	            overflow: hidden;
-	        }
-
-            .post:hover {
-	            background: #000;
-	        }
-
-            .permalink {
-	            border-width: 0px;
-	            width: 145px;
-	            height: 11px;
-	            line-height: 12px;
-	            position: absolute;
-	            bottom: 10px;
-	            right: 10px;
-	            color: #333;
-	            font-size: 12px;
-	            text-align: right;
-	        }
-	        
-            .permalink a {
-	            color: #333;
-	            border-bottom: 1px dotted #333;
-	            font-size: 12px;
-	        }
-	        
-            .permalink a:hover {
-	            color: {color:Alternate Text};
-	            border-bottom: 1px solid {color:Alternate Text};
-	        }
-	        
-            .photobox {
-	            width: 250px;
-	            height: 150px;
-	            overflow: hidden;
-	            margin-bottom: 10px;
-	        }
-	        
-	          .photobox a img {
-	            border: none ! important;
-	        }
-
-            .audio .photobox {
-	            background: #111;
-	        }
-
-            .player {
-	            padding: 60px 20px;
-	            border: 1px solid #222;
-	        }
-
-            .video .caption {
-	            padding-top: 10px;
-	        }
-
-            .quotetext {
-	            font-size: 22px;
-	            font-family: Georgia;
-	            line-height: 22px;
-	            padding-bottom: 11px;
-	            color: {color:Alternate Text};
-	        }
-
-            .source {
-	            font-family: helvetica neue, helvetica, arial;
-	            font-size: 11px;
-	            text-align: right;
-	            color: #666;
-	        }
-
-            .caption {
-	            line-height: 18px;
-	        }
-
-            .conversation ul li {
-	            line-height: 18px;
-	            border-bottom: 1px dotted #222;
-	            padding: 3px 0 3px 0px;
-	        }
-	        
-            .conversation ul li span {
-	            color: {color:Alternate Text};
-	        }
-
-            .even {
-	            border-bottom: 1px dotted #222;
-	        }
-	        
-            ol li {
-                list-style: decimal outside;
-                margin: 0 0 0 20px;
-                padding: 0 0 5px 0
-            }
-
-            a {
-	            color: {color:Alternate Text};
-	            border-bottom: 1px dotted #443e31;
-	            text-decoration: none;
-	        }
-
-            a:hover {
-	            color: #CAC9C8;
-	            border-bottom: 1px solid #3F3F3F;
-	        }
-
-            p {
-	            line-height: 18px;
-	            margin-bottom: 9px;
-	        }
-
-            .photo strong, .photo b, .video strong, .video b, .audio strong, .audio b{
-	            font-family: Georgia;
-	            font-weight: normal;
-	            font-size: 17px;
-	            line-height: 18px;
-	            color: {color:Alternate Text};
-	        }
-
-            h1 {
-	            font-family: Georgia;
-	            font-weight: normal;
-	            font-size: 17px;
-	            line-height: 18px;
-	            padding: 0 0 9px 0;
-	        }
-
-            #header {
-	            padding: 40px 0 60px 0;
-	            position: relative;
-	        }
-
-                #header h1 {
-    	            width: 297px;
-    	        }
-
-                    #header h1 a {
-        	            color: #ddd;
-        	            font-style: italic;
-        	            border: 0;
-        	            font-size: 18px;
-        	            line-height: 16px;
-        	        }
-
-                        #header h1 a:hover {
-            	            color: #fff;
-            	        }
-        
-                #header ul {
-	                position: absolute;
-	                left: 560px;
-	                top: 40px;
-	            }
-
-                    #header ul li {
-    	                display: inline;
-    	            }
-
-                        #header ul li a {
-        	                font-family: georgia;
-        	                color: #ddd;
-        	                font-style: italic;
-        	                border-bottom: 1px dotted #999;
-        	                margin-right: 11px;
-        	            }
-
-                            #header ul li a:hover {
-	                            color: #fff;
-	                            border-bottom: 1px solid #fff;
-	                        }
-
-            #navigation, .meta {
-                text-align: center;
-                height: 350px;
-                float: left;
-                width: 270px;
-                background: url('/themes/11/shade.png');
-            }
-
-                #navigation a {
-                    border: 0;
-                    padding: 3px 8px;
-                    background: #222;
-                }
-
-                    #navigation a:hover {
-                        background: #333;
-                    }
-
-                    .pages {
-                        font-family: Georgia;
-                        font-size: 11px;
-                        padding-bottom: 48px;
-                    }
-
-                        .pages span {
-                            font-size: 110px;
-                        }
-
-            .total {
-	            color: #333;
-	        }
-
-            #footer {
-	            clear: both;
-	            padding: 40px 0;
-	            text-align: left;
-	        }
-
-            body#perm #navigation {
-	            display: none;
-	        }
-
-            body#perm .post {
-	            width: 550px;
-	        }
-
-            body#perm .photobox, body#perm .videobox {
-	            float: right;
-	            margin-left: 10px;
-	        }
-
-            .meta {
-	            display: none;
-	        }
-
-            body#perm .meta {
-	            display: block;
-	            text-align: left;
-	        }
-
-            body#perm .permalink {
-	            display: none;
-	        }
-
-            .meta span, h3 {
-	            text-transform: uppercase;
-	            font-size: 10px;
-	            color: {color:Alternate Text};
-	            display: block;
-	            line-height: 18px;
-	        }
-	        
-	        {CustomCSS}
-        </style>
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-339096-12");
-pageTracker._trackPageview();
-</script>
-
-        <!--[if IE]>
-            <style type="text/css">
-                .post, #navigation, .meta { background:#010101; }
-            </style>
-        <![endif]-->
-    </head>
-    <body {block:Permalink}id="perm"{/block:Permalink}>				
-        <div id="container">     
-        	<div id="header">
-                <h1><a href="/">{Title}</a></h1>
-        		<ul>
-            		<li><a href="/archive">archive</a></li>
-            		<li><a href="{RSS}">rss feed</a></li>
-        		</ul>
-        	</div>
-        
-            {block:Posts}
-        		<div class="post">
-        			{block:Regular}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a></div>
-        				<div class="regular">		
-        					{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
-                            {Body}
-                        </div>
-                    {/block:Regular}
-                
-                    {block:Photo}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a></div>
-        				<div class="photo">
-        					<div class="photobox">{LinkOpenTag}<img src="{PhotoURL-250}" alt="{PhotoAlt}"/>{LinkCloseTag}</div>    
-                            {block:Caption}
-        						<div class="caption">{Caption}</div>
-                            {/block:Caption}
-        				</div>
-                    {/block:Photo}
-                
-                    {block:Quote}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a></div>
-        				<div class="quote">
-                            <div class="quotetext">
-        						&#147; {Quote}
-        					</div>
-                            {block:Source}<div class="source">&mdash; {Source}</div>{/block:Source}</div>
-                    {/block:Quote}
-                
-                    {block:Link}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a</div>
-                        <div class="link">
-        					<h1><a href="{URL}" {Target}>{Name} &#187; </a></h1>
-                            {block:Description}
-        						<p class="description">{Description}</p>
-                            {/block:Description}
-                        </div>
-                    {/block:Link}
-                
-        			{block:Conversation}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a</div>
-        				<div class="conversation">
-                            {block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
-                                <ul>
-                                    {block:Lines}
-                                        <li class="{Alt}">
-                                            {block:Label}<span class="label">{Label}</span>{/block:Label}
-                                            {Line}
-                                        </li>
-                                    {/block:Lines}
-                                </ul>
-                        </div>
-                    {/block:Conversation}
-                
-                    {block:Video}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a></div>			
-                        <div class="video">		
-                            <div class="videobox">{Video-250}</div>
-                            {block:Caption}
-                                <div class="caption">{Caption}</div>
-                            {/block:Caption}
-                        </div>
-                    {/block:Video}
-			
-        			{block:Audio}
-        			    <div class="permalink"><a href="{PostAuthorURL}">{PostAuthorName}</a> : <a
-        			    href="{Permalink}">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a</div>
-        				<div class="audio">
-                            <div class="photobox"><div class="player">{AudioPlayerBlack}</div></div>
-                            {block:Caption}
-                                <div class="caption">{Caption}</div>
-                            {/block:Caption}
-                        </div>
-                    {/block:Audio}
-                </div>
-		
-        		<div class="meta">
-            		<div class="metabox">
-                		<p><span>posted :</span> {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}</p>
-                		<p><span>tags :</span> {TagsAsClasses}</p>
-                		{block:RebloggedFrom}<p><span>reblogged from :</span>
-                		<a href="{ReblogParentURL}">{ReblogParentTitle}</a></p>{/block:RebloggedFrom}
-            		</div>
-        	    </div>
-            {/block:Posts}
-        
-        	<div id="navigation">
-        		<div class="pages">
-        		    <em>page</em> <span>{CurrentPage}</span> of
-        		    <span class="total">{TotalPages}</span>
-        		</div>
-        		
-    			{block:PreviousPage}
-    				<a href="{PreviousPage}">&#171; Previous Page</a> &nbsp;&nbsp;
-    			{/block:PreviousPage}
-    
-    			{block:NextPage}
-    				<a href="{NextPage}">Next Page &#187;</a>
-    			{/block:NextPage}
-        	</div>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	text-decoration:none;}
+body{
+	background:#111 url(http://themes.paulgiacherio.com/museum/bg2.jpg) fixed top center;
+	font-family:arial,san-serif;
+	font-size:12px;
+	color:#949494;
+	text-align:center;}
+#container{
+	width:auto;
+	margin:0 27px;
+	text-align:left;}
 	
-        	<div id="footer">
-        		<a href="{RSS}">rss feed</a> /
-        		powered by <a href="http://www.tumblr.com/" target="_blank">tumblr</a> /
-        		theme by <a href="http://paulgiacherio.com" target="_blank">paulgiacherio</a>
-        	</div>
-        </div>
-    </body>
+/*HEADER STYLES*/
+#header{
+	padding:27px 0 36px 27px;
+	position:relative;
+	text-align:left;}
+#header a{
+	color:#777;}
+#header a:hover{
+	color:#fff;}
+#header h1 a{
+	border:0;
+	font-size:17px;
+	line-height:18px;
+	text-transform:uppercase;
+	letter-spacing:.05em;}
+#header ul li{
+	display:inline;}
+#header ul li a{
+	border-bottom:0;
+	margin-right:11px;
+	line-height:18px;}
+#header ul li a:hover{
+	border-bottom:0px}
+#portrait{
+	width:54px;
+	float:left;}	
+	
+/*MAIN BOXES*/
+.post{
+	padding:10px;
+	float:left;
+	background:#000;
+	margin-right:10px;
+	margin-bottom:10px;
+	position:relative;
+	line-height:18px;}
+.photo,.quote,.link,.conversation,.video,.audio,.regular{
+	min-height:350px;
+	width:530px;}
+body#index .regular,body#index .photo,body#index .quote,body#index .link,body#index .conversation,body#index .video,body#index .audio,.metabox{
+	height:350px;
+	width:250px;
+	overflow:hidden;}
+
+/*BIG MORE LINK AND TRICKY PNG FADE BOX TRIGGERED BY TAGGING ANY POST WITH 'more'*/
+.morewrap{
+	display:none;}
+body#index .more .morewrap{
+	display:block}
+.morelink{
+	display:block;
+	background:#a00;
+	position:absolute;
+	top:235px;
+	left:0px;
+	padding:0 10px 0 45px;
+	border:0;
+	line-height:27px;
+	z-index:3000;}
+.morelink:hover{
+	border:0;
+	background:#800;
+	color:#fff;}	
+.fade{
+	position:absolute;
+	bottom:10px;
+	height:175px;
+	background:url(http://themes.paulgiacherio.com/museum/shade.png) repeat-x left bottom;
+	width:250px;
+	display:block;
+	z-index:100;}
+
+/*PERMALINK AND COMMENT COUNT LINKS*/	
+.permalink, .disquscount {
+	border-width: 0px;
+	height: 11px;
+	line-height:11px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color:#444;
+	z-index:200;
+	display:none/*HIDE ON PERMALINK PAGES*/}
+body#index .permalink, body#index .disquscount{
+	display:block;}	
+.disquscount{
+	right:auto;
+	left:10px;
+	color:#444;}
+.permalink:hover,.disquscount:hover{
+	color:#fff;
+	border:0;}
+
+/*PHOTO STYLES*/
+.photo/*PERMALINK PAGES STRETCH TO FIT PHOTO*/{
+	height:auto;}
+.photo .photobox a{
+	border:0;}
+.photo img{
+	border:15px solid #111;
+	margin-bottom:10px;}
+.photo a:hover img{
+	border-color:#222;}
+body#index .photo img/*TRICK TO CENTER THE PHOTOS IN THE VISIBLE BOX ON INDEX PAGES*/{
+	left:50%;
+	margin-left:-50%;
+	border:0;}
+body#index .slim .photo img{left:0;margin-left:0;}/*IF YOUR IMAGES ARE NARROW AND OFF TO THE LEFT TAG THEM AS 'slim' AND THEY WILL SIT TOP LEFT*/
+body#index .photo .permalink/*SPECIAL PERMALINK FORMATTING FOR PHOTO PAGES*/{
+	position: absolute;
+	top: 0px;
+	right: 20px;	
+	display:none;
+	padding:15px 7px 7px;
+	background:#a00;
+	color:#FFF;
+	font-size:16px;}
+body#index .photo:hover .permalink{
+	display:block;}
+body#index .photo .permalink:hover{
+	background:#800;
+	border:0;}
+body#index .photo .caption/*OVERLAY TRANSPARENT CAPTION AT BOTTOM OF PHOTO*/{
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	background:#000;
+	opacity:.85;
+	-moz-opacity: 0.85;
+	filter: alpha(opacity=85);
+	width:250px;
+	padding:10px 0 10px 0;
+	z-index:100;}
+body#index .photo .caption p{
+	padding:0 5px;margin:0;}
+body#index .photo b{
+	display:block;margin-bottom:5px;}
+
+
+	
+/*REGULAR TEXT POST STYLES*/
+body#index .pad{
+	padding-top:36px;}
+
+/*AUDIO/VIDEO STYLES*/
+.player{
+	padding:60px 20px;
+	border:1px solid #222;
+	background:#111;
+	margin:0 0 10px 18px;
+	float:right;}
+body#index .player{
+	padding:60px 0 60px 20px;
+	margin:0 0 10px 0;
+	float:none;}
+/*body#index .video embed,body#index .video object{*/
+/*	height:auto;width:248px;margin:0;}*/
+/*.video embed{margin:0 0 0 15px;}*/
+.video .caption{
+	padding-top:10px;}
+	
+/*QUOTE STYLES*/
+.quotetext{
+	font-size:22px;
+	font-family:courier;
+	line-height:22px;
+	padding-bottom:11px;
+	color:#777;
+	padding-top:36px;
+	word-spacing:-.2em;
+	letter-spacing:-.04em;}
+.source{
+	font-family:arial;
+	font-size:11px;
+	text-align:right;
+	color:#666;}
+
+/*CONVERSATION STYLES*/
+.conversation ul li{
+	line-height:18px;
+	border-bottom:1px dotted #222;
+	padding:3px 0 3px 0px}
+.conversation ul li span{
+	color:#ccc;}
+.even{
+	border-bottom:1px dotted #222;}
+
+/*GENERAL CONTENT STYLES*/
+a {
+	color:#FFF;
+	border-bottom:1px dotted #444;
+	text-decoration:none;}
+a:hover{
+	color:#ccc;
+	border-bottom:1px solid #ccc;}
+p{
+	line-height:18px;
+	margin-bottom:9px;}
+h1,.photo strong, .photo b, .video strong, .video b, .audio strong, .audio b{
+	font-weight:normal;
+	font-size:16px;
+	line-height:18px;
+	color:#FFF;}
+h1{
+	padding:0 0 9px 0;}
+h2{
+	font-size:12px;
+	font-weight:normal;
+	text-transform:uppercase;
+	color:#e00;
+	margin:9px 0 9px 0;}
+h3{
+	text-transform:uppercase;
+	font-size:10px;
+	color:#fff;
+	line-height:18px;}
+ol{
+	margin-bottom:9px;}
+ol li{
+	list-style:decimal outside;
+	margin:0 0 0 20px;
+	padding:0 0 5px 0;}
+blockquote{
+	margin:0 20px 9px;}
+	
+/*PAGENAVIGATION BOX STYLES*/
+#navigation/*HIDDEN ON PERMALINK PAGES*/{
+	display:none;}	
+body#index #navigation{
+	display:block;
+	text-align:center;
+	float:left;
+	background:#000;
+	height:370px;
+	width:270px;
+	position:relative;}
+#pagetab{
+	height: 11px;
+	line-height:10px;
+	font-size:11px;
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	color:#949494;
+	padding:15px 7px 7px;
+	background:#222;}
+.pages{
+	line-height:225px;
+	font-size:11px;}
+.pages span{
+	font-size:110px;
+	vertical-align:middle;}
+.total{
+	color:#222;}
+#navigation a{
+	border:1px solid #222;
+	line-height:27px;
+	padding:5px 9px;
+	color:#444;}
+#navigation a:hover{
+	background:#111;
+	color:#fff;}
+
+/*FOOTER STYLES*/	
+#footer{
+	color:#555;
+	clear:both;
+	padding:40px 0;
+	text-align:left;}
+#footer a{
+	color:#555;
+	border:0;}
+#footer a:hover{
+	color:#fff;}
+	
+/*META BOX LOCATED ON PERMALINK PAGES*/
+body#index .meta/*HIDDEN ON INDEX PAGES*/{
+	display:none;}
+.meta{
+	display:block;
+	float:left;
+	text-align:left;
+	background:#000;
+	padding:10px;}
+.meta span{
+	text-transform:uppercase;
+	font-size:10px;
+	color:#fff;
+	display:block;
+	line-height:18px;}
+
+/*DISQUS STYLES*/
+body#index .comments{display:none}
+.comments{width:530px;}
+#disqus_thread{padding-top:36px;margin-top:36px;border-top:1px solid #222;}
+#dsq-content #dsq-options-toggle { display: none; }
+#dsq-content #dsq-extra-links { display: none; }
+#dsq-content #dsq-add-new-comment{margin-top:36px;}
+#dsq-content #dsq-comments .dsq-comment-rate { display: none; }
+#dsq-content #dsq-comments .dsq-comment-header{ background: #111; }
+#dsq-content #dsq-comments .dsq-header-meta{color:#444;}
+#dsq-content #dsq-comments ul{border:0;}
+#dsq-content #dsq-comments .dsq-comment{background:#111;padding:10px;}
+#dsq-content #dsq-comments .dsq-comment-footer{display:none;}
+
+
+/*LIVE SEARCE STYLES*/
+.searchbox {
+	position:relative;
+	margin-left:280px;
+	width:500px;
+	padding:0;}
+.searchbox input{
+	position:absolute;
+	top:-22px;
+	left:280px;
+	padding:2px;
+    font-size:13px;
+    width:180px;
+	border:1px solid #000;
+	border-color:#000 #2f2f2f #2f2f2f #a00;
+	border-width:1px 1px 1px 2px;
+	background:#202020;
+	color:#fff}
+#SearchBox1results{
+	padding-top:18px;}
+.searchmatch{
+	background-color:#a00;
+	color:#fff;}
+.searchresultrow {
+	background:#000;
+	font-family:verdana;
+	font-size:12px;
+	padding:10px;
+	margin-top:10px;
+	overflow:hidden;
+	border:1px solid #000;
+	width:530px;}
+.searchresultrow:hover {
+	cursor:pointer;
+	border:1px solid #222;
+	background:#191919;}
+#header .searchresultrow a {
+	font-size:14px;
+	color:#fff;
+	text-decoration:none;}
+.searchexcerpt {
+	color:#AAA;
+	padding:5px 0;
+	font-size:12px;}
+.searchexcerpt span {
+	background:#a00;						
+	color:#fff;}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+.post,#navigation,.meta{background:#010101;}
+.photo,.quote,.link,.conversation,.video,.audio,.regular{height:350px;overflow:visible;}
+body#index .fade{z-index:100;position:absolute;bottom:8px;}
+</style>
+<script type="text/javascript" src="http://themes.paulgiacherio.com/museum/supersleight-min.js"></script>
+<![endif]-->
+<style type="text/css">
+{CustomCSS}
+</style>
+<script src="http://www.thisismydevsite.com/tumblr.js" type="text/javascript"></script>
+</head>
+
+<body {block:IndexPage}id="index"{/block:IndexPage}>				
+    <div id="header">
+	<!--UNCOMMENT TO INCLUDE PORTRAIT PHOTO 
+	<div id="portrait"><img src="{PortraitURL-40}" alt="{Title}" /></div>
+	-->
+        <h1><a href="/">{Title}</a></h1>
+		<ul>
+		<li><a href="/archive">archive</a></li>
+		<li><a href="/mobile">mobile</a></li>
+		<li><a href="{RSS}">rss feed</a></li>
+		</ul>
+		<div class="searchbox">
+			<script type="text/javascript">Tumblr.searchBox()</script>
+		</div>
+	</div>
+	
+	<div id="container">        
+    {block:Posts}
+		<div class="post {TagsAsClasses}">
+			
+			{block:Regular}
+			<div class="regular">		
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+				<div class="pad"><!--PAD BUMPS INDEX PAGE TEXT-->
+					{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+                    {Body}
+				</div>
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR REGULAR POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->
+			</div>
+			{/block:Regular}
+                
+            {block:Photo}
+			<div class="photo">
+				<!--MORELINK DISABLED FOR PHOTOS- IT INTERFERES WITH CAPTION. UNCOMMENT NEXT FOUR LINES IF YOU GOTTA HAVE MORE LINK ON PHOTOS--> 
+				<!--<div class="morewrap">-->
+					<!--<a href="{Permalink}" class="morelink">more +</a>-->
+					<!--<div class="fade"></div>-->
+				<!--</div>-->
+				
+				<a href="{Permalink}" class="permalink">+</a><!--SPECIAL TREATMENT FOR PHOTO PERMALINK-->
+				<div class="photobox">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>
+                {block:Caption}
+					<div class="caption">{Caption}</div>
+                {/block:Caption}
+			</div>
+            {/block:Photo}
+                
+            {block:Quote}
+			<div class="quote">
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+                <div class="quotetext">
+					&#147; {Quote}
+				</div>
+                {block:Source}<div class="source">&mdash; {Source}</div>{/block:Source}
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR QUOTE POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->			
+				
+			</div>
+            {/block:Quote}
+                
+            {block:Link}
+            <div class="link">
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+				<div class="pad">
+					<h1><a href="{URL}" {Target}>{Name} &#187; </a></h1>
+                    {block:Description}
+						<p class="description">{Description}</p>
+                    {/block:Description}
+				</div>
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR LINK POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->
+            </div>
+            {/block:Link}
+                
+			{block:Conversation}
+			<div class="conversation">
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+				<div class="pad">
+				{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+					<ul>
+						{block:Lines}
+							<li class="{Alt}">
+								{block:Label}<span class="label">{Label}</span>{/block:Label}
+								{Line}
+							</li>
+						{/block:Lines}
+					</ul>
+				</div>
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR CONVERSATION POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->
+            </div>
+            {/block:Conversation}
+                
+            {block:Video}
+            <div class="video">
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+                <div class="videobox">{Video-250}</div>
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR VIDEO POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->
+            </div>
+            {/block:Video}
+			
+			{block:Audio}
+			<div class="audio">
+				<div class="morewrap"><!--MOREWRAP TRIGGERED BY TAGGING POST 'more'-->
+					<a href="{Permalink}" class="morelink">more +</a>
+					<div class="fade"></div>
+				</div><!--END MOREWRAP-->
+                <div class="player">{AudioPlayerBlack}</div>
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+				<a href="{Permalink}" class="permalink">{MonthNumber}.{DayOfMonthWithZero}.{ShortYear}</a>
+				<!--UNCOMMENT BELOW TO ENABLE COMMENTS COUNT FOR AUDIO POSTS-->
+				<!--<a href="{Permalink}#disqus_thread" class="disquscount">Comments (View)</a>-->
+            </div>
+            {/block:Audio}
+
+		<div class="comments">
+		<!--PASTE DISQUS PERMALINK BLOCK HERE-->
+		</div>
+        </div><!--CLOSE POST-->
+		
+		<div class="meta"><!--METABOX APPEARS ON PERMALINK PAGE-->
+			<div class="metabox">
+				<p><span>posted :</span> {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}</p>
+				{block:RebloggedFrom}
+					<p><span>reblogged from :</span> <a href="{ReblogParentURL}">{ReblogParentTitle}</a></p>
+				{/block:RebloggedFrom}
+			</div>
+		</div>
+    {/block:Posts}
+        
+	<div id="navigation"><!--NAVIGATION ONLY APPEARS ON INDEX PAGES-->
+		<div id="pagetab">page</div>
+		<div class="pages">
+			<span>{CurrentPage}</span> of <span class="total">{TotalPages}</span>
+		</div>
+		{block:PreviousPage}
+			<a href="{PreviousPage}">- Previous Page</a> &nbsp;&nbsp;
+		{/block:PreviousPage}
+        
+		{block:NextPage}
+			<a href="{NextPage}">Next Page +</a>
+		{/block:NextPage}
+	</div>
+	
+	<div id="footer">
+		<a href="/rss">rss feed</a> | <a href="http://www.tumblr.com/" target="_blank">tumblr</a> + <a href="http://paulgiacherio.com" target="_blank">paulgiacherio</a>
+	</div>
+	
+</div><!--CLOSE CONTAINER-->
+
+</body>
 </html>
